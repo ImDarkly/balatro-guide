@@ -1,7 +1,13 @@
 "use client";
 import { createContext, ReactNode, useContext, useState } from "react";
 
-export type BackgroundMode = "animated" | "static" | "off";
+export enum BackgroundMode {
+  Animated = "animated",
+  Static = "static",
+  Off = "off",
+}
+
+export const BACKGROUND_MODES = Object.values(BackgroundMode);
 
 type BackgroundContextType = {
   mode: BackgroundMode;
@@ -9,13 +15,13 @@ type BackgroundContextType = {
 };
 
 const BackgroundContext = createContext<BackgroundContextType>({
-  mode: "animated",
+  mode: BackgroundMode.Animated,
   setMode: () => {},
 });
 
 // Provider component
 export const BackgroundProvider = ({ children }: { children: ReactNode }) => {
-  const [mode, setMode] = useState<BackgroundMode>("animated");
+  const [mode, setMode] = useState<BackgroundMode>(BackgroundMode.Animated);
 
   return (
     <BackgroundContext.Provider value={{ mode, setMode }}>

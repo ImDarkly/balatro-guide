@@ -6,7 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { useBackground } from "../context/BackgroundContext";
+import { BACKGROUND_MODES, useBackground } from "../context/BackgroundContext";
 
 const version = process.env.NEXT_PUBLIC_APP_VERSION;
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           <Button>{capitalize(mode)}</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          {(["animated", "static", "off"] as const).map((m) => (
+          {BACKGROUND_MODES.map((m) => (
             <DropdownMenuItem key={m} onClick={() => setMode(m)}>
               {capitalize(m)}
             </DropdownMenuItem>
