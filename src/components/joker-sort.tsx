@@ -13,8 +13,26 @@ import { ArrowDownAz, ArrowUpAZ, SlidersHorizontal } from "lucide-react";
 import { Button } from "./ui/button";
 import { useQueryState } from "nuqs";
 
+const jokerSortOptions = {
+  Name: [
+    { value: "name-asc", label: "A-Z", icon: ArrowDownAz },
+    { value: "name-desc", label: "Z-A", icon: ArrowUpAZ },
+  ],
+  Rarity: [
+    { value: "rarity-asc", label: "Low-High", icon: ArrowDownAz },
+    { value: "rarity-desc", label: "High-Low", icon: ArrowUpAZ },
+  ],
+  "Buy Price": [
+    { value: "buy-price-asc", label: "Low-High", icon: ArrowDownAz },
+    { value: "buy-price-desc", label: "High-Low", icon: ArrowUpAZ },
+  ],
+  "Sell Price": [
+    { value: "sell-price-asc", label: "Low-High", icon: ArrowDownAz },
+    { value: "sell-price-desc", label: "High-Low", icon: ArrowUpAZ },
+  ],
+};
 const JokerSort: React.FC = () => {
-  const [sortOption, setSortOption] = useQueryState("sortOption", {
+  const [sort, setSort] = useQueryState("sort", {
     defaultValue: "name-asc",
   });
 
@@ -28,37 +46,29 @@ const JokerSort: React.FC = () => {
       <DropdownMenuContent>
         <DropdownMenuLabel>Sort by</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup
-          value={sortOption || ""}
-          onValueChange={setSortOption}
-        >
-          <DropdownMenuRadioItem value="name-asc">
-            Name <ArrowDownAz />
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="name-desc">
-            Name <ArrowUpAZ />
-          </DropdownMenuRadioItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuRadioItem value="rarity-asc">
-            Rarity: Common to Legendary
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="rarity-desc">
-            Rarity: Legendary to Common
-          </DropdownMenuRadioItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuRadioItem value="buy_price_asc">
-            Buy Price: Low to High
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="buy_price_desc">
-            Buy Price: High to Low
-          </DropdownMenuRadioItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuRadioItem value="sell_price_asc">
-            Sell Price: Low to High
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="sell_price_desc">
-            Sell Price: High to Low
-          </DropdownMenuRadioItem>
+        <DropdownMenuRadioGroup value={sort || ""} onValueChange={setSort}>
+          {Object.entries(jokerSortOptions).map(
+            ([category, options], index) => {
+              return (
+                <React.Fragment key={category}>
+                  {index > 0 && <DropdownMenuSeparator />}
+                  <DropdownMenuLabel>{category}</DropdownMenuLabel>
+                  {options.map((option) => {
+                    const Icon = option.icon;
+                    return (
+                      <DropdownMenuRadioItem
+                        key={option.value}
+                        value={option.value}
+                      >
+                        <Icon />
+                        {option.label}
+                      </DropdownMenuRadioItem>
+                    );
+                  })}
+                </React.Fragment>
+              );
+            }
+          )}
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

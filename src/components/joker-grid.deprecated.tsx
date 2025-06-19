@@ -1,3 +1,5 @@
+// DEPRECATED: This file will be removed in v0.0.3-alpha. Use cards-grid.tsx instead.
+
 import { getJokers } from "../lib/getJokers";
 import JokerCard from "./joker-card";
 

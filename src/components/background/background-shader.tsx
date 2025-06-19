@@ -267,6 +267,9 @@ export default function BackgroundShader({
   }, [isPaused]);
 
   return (
-    <div ref={containerRef} className="w-full h-full fixed inset-0 z-[-1]" />
+    <div
+      ref={containerRef}
+      className="fixed inset-0 w-screen h-screen -z-10 pointer-events-none"
+    />
   );
 }

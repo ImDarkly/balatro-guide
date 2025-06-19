@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import { BackgroundProvider } from "../context/BackgroundContext";
 import Background from "../components/background/background";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import Header from "../components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,10 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-svh bg-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col bg-foreground`}
       >
         <NuqsAdapter>
           <BackgroundProvider>
+            <Header />
             <Background />
             {children}
             <Footer />
