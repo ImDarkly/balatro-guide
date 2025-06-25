@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["static.wikia.nocookie.net"],
+    domains: ["static.wikia.nocookie.net", "balatrowiki.org"],
   },
   env: {
     NEXT_PUBLIC_APP_VERSION: require("./package.json").version,

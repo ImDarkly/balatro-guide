@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface CardsGridProps<T extends { id: string }> {
   items: T[];
@@ -9,13 +10,19 @@ export function CardsGrid<T extends { id: string }>({
   items,
   children,
 }: CardsGridProps<T>) {
+  if (items.length === 0) {
+    return (
+      <>
+        <div className="w-full text-center text-muted py-8">
+          No cards found.
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 justify-items-center">
-      {items.map((item) => (
-        <div key={item.id}>{children(item)}</div>
-      ))}
+    <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      {items.map((item) => children(item))}
     </div>
   );
 }
-
-export default CardsGrid;

@@ -1,4 +1,4 @@
-import BackgroundSwitch from "./background-switch";
+import BackgroundSwitch from "./background/background-switch";
 
 const Header: React.FC = () => {
   return (

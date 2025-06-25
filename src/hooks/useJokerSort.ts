@@ -43,7 +43,9 @@ export function useJokerSort(jokers: Joker[]) {
         sortedJokers.sort((a, b) => b.sellPrice - a.sellPrice);
         break;
       default:
-        sortedJokers.sort((a, b) => a.name.localeCompare(b.name));
+        sortedJokers.sort(
+          (a, b) => rarityOrder[a.rarity] - rarityOrder[b.rarity]
+        );
         break;
     }
     return sortedJokers;

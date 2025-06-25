@@ -1,7 +1,16 @@
 "use client";
-import JokerGrid from "../components/joker-grid.deprecated";
+import { CardsGrid } from "../components/cards-grid";
+import JokerCard from "../components/joker/joker-card";
+import { Joker } from "../utils/types/jokers";
+import { useJokerFilter } from "../hooks/useJokerFilter";
+import { useJokerSort } from "../hooks/useJokerSort";
+import { jokers } from "@/src/data/jokers.json";
+import JokerControlsSheet from "../components/joker/joker-controls-sheet";
 
 export default function Home() {
+  const filteredJokers = useJokerFilter(jokers as Joker[]);
+  const sortedJokers = useJokerSort(filteredJokers as Joker[]);
+
   return (
     <main className="flex flex-col items-center justify-around p-4">
       <div className="flex h-[30vh] flex-col justify-center">
@@ -14,7 +23,10 @@ export default function Home() {
         </p>
       </div>
       <div className="w-full max-w-screen-lg gap-4 flex flex-col pb-9">
-        <JokerGrid /> {/*Change to CardsGrid in v0.0.3-alpha*/}
+        <JokerControlsSheet />
+        <CardsGrid items={sortedJokers as Joker[]}>
+          {(joker) => <JokerCard key={joker.id} {...joker} />}
+        </CardsGrid>
       </div>
     </main>
   );

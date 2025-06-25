@@ -1,13 +1,17 @@
 "use client";
+
+import {
+  BACKGROUND_MODES,
+  useBackground,
+} from "@/src/context/BackgroundContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
-import { BACKGROUND_MODES, useBackground } from "../context/BackgroundContext";
-import { capitalize } from "../utils/string";
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
+import { capitalize } from "@/src/utils/string";
 
 const BackgroundSwitch: React.FC = () => {
   const { mode, setMode } = useBackground();
