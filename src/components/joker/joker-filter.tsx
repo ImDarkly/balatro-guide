@@ -50,10 +50,8 @@ const JokerFilter: React.FC = () => {
   return (
     <div>
       {Object.entries(jokerFilterOptions).map(([category, config]) => (
-        <div>
-          <Label key={category} className="text-muted-foreground">
-            {config.label}
-          </Label>
+        <div key={category}>
+          <Label className="text-muted-foreground">{config.label}</Label>
           <div className="flex flex-wrap my-4">
             {config.options.map((option) => {
               const key = category as keyof typeof filter;

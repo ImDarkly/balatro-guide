@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+jokers-parse.json
+parseJokers.ts
 
 # next.js
 /.next/
