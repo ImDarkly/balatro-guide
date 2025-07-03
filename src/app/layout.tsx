@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col bg-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col bg-background`}
       >
         <NuqsAdapter>
           <BackgroundProvider>

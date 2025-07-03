@@ -10,7 +10,7 @@ export type Joker = {
   type:
     | "Additive Mult"
     | "Chips"
-    | "Chips & Additive Mult"
+    | "Chips and Additive Mult"
     | "Economy"
     | "Effect"
     | "Multiplicative Mult"

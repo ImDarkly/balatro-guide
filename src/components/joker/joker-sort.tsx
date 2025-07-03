@@ -39,28 +39,31 @@ const JokerSort: React.FC = () => {
   });
 
   return (
-    <RadioGroup value={sort} onValueChange={setSort} className="py-4">
-      {Object.entries(jokerSortOptions).map(([category, options]) => (
-        <div key={category} className="gap-4">
-          <Label className="text-muted-foreground">{category}</Label>
-          <div className="flex flex-row gap-4 my-4">
-            {options.map((option) => {
-              const Icon = option.icon;
-              return (
-                <div key={option.value} className="flex flex-row">
-                  <RadioGroupItem
-                    id={option.value}
-                    value={option.value}
-                  ></RadioGroupItem>
-                  <Icon className="size-3" />
-                  <Label htmlFor={option.value}>{option.label}</Label>
-                </div>
-              );
-            })}
+    <div>
+      <Label className="text-base">Sort by</Label>
+      <RadioGroup value={sort} onValueChange={setSort} className="py-4">
+        {Object.entries(jokerSortOptions).map(([category, options]) => (
+          <div key={category} className="gap-4">
+            <Label className="text-muted-foreground">{category}</Label>
+            <div className="flex flex-row gap-4 my-4">
+              {options.map((option) => {
+                const Icon = option.icon;
+                return (
+                  <div key={option.value} className="flex gap-1 flex-row">
+                    <RadioGroupItem
+                      id={option.value}
+                      value={option.value}
+                    ></RadioGroupItem>
+                    <Icon className="size-3" />
+                    <Label htmlFor={option.value}>{option.label}</Label>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      ))}
-    </RadioGroup>
+        ))}
+      </RadioGroup>
+    </div>
   );
 };
 

@@ -7,6 +7,9 @@ export function useJokerFilter(jokers: Joker[]) {
     rarity: parseAsArrayOf(parseAsString),
     type: parseAsArrayOf(parseAsString),
     activation: parseAsArrayOf(parseAsString),
+    copyable: parseAsArrayOf(parseAsString),
+    perishable: parseAsArrayOf(parseAsString),
+    eternal: parseAsArrayOf(parseAsString),
   });
 
   return useMemo(() => {
@@ -24,6 +27,21 @@ export function useJokerFilter(jokers: Joker[]) {
     if (filter.activation) {
       filteredJokers = filteredJokers.filter((joker) =>
         filter.activation!.includes(joker.activation)
+      );
+    }
+    if (filter.copyable) {
+      filteredJokers = filteredJokers.filter((joker) =>
+        filter.copyable!.includes(String(joker.copyable))
+      );
+    }
+    if (filter.perishable) {
+      filteredJokers = filteredJokers.filter((joker) =>
+        filter.perishable!.includes(String(joker.perishable))
+      );
+    }
+    if (filter.eternal) {
+      filteredJokers = filteredJokers.filter((joker) =>
+        filter.eternal!.includes(String(joker.eternal))
       );
     }
     return filteredJokers;

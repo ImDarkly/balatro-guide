@@ -4,7 +4,7 @@ import JokerCard from "../components/joker/joker-card";
 import { Joker } from "../utils/types/jokers";
 import { useJokerFilter } from "../hooks/useJokerFilter";
 import { useJokerSort } from "../hooks/useJokerSort";
-import { jokers } from "@/jokers-parse.json";
+import { jokers } from "@/src/data/jokers.json";
 import JokerControlsSheet from "../components/joker/joker-controls-sheet";
 
 export default function Home() {
