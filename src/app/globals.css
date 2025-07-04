@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
  
 
 @custom-variant dark (&:is(.dark *));
@@ -23,7 +24,7 @@
   --destructive-foreground: oklch(0 0 0);
   --border: oklch(0.4272 0.0276 217.1860);
   --input: oklch(0.4313 0 0);
-  --ring: oklch(0.5016 0.1887 27.4816);
+  --ring: oklch(0.6290 0.1862 251.6312);
   --chart-1: oklch(0.5016 0.1887 27.4816);
   --chart-2: oklch(0.4955 0.0896 126.1858);
   --chart-3: oklch(0.5880 0.0993 245.7394);
@@ -183,4 +184,9 @@
 .image-pixelated {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+
+::selection {
+  background-color: var(--destructive);
+  color: var(--foreground)
 }

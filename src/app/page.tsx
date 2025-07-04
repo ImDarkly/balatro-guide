@@ -6,9 +6,12 @@ import { useJokerFilter } from "../hooks/useJokerFilter";
 import { useJokerSort } from "../hooks/useJokerSort";
 import { jokers } from "@/src/data/jokers.json";
 import JokerControlsSheet from "../components/joker/joker-controls-sheet";
+import { JokerSearch } from "../components/joker/joker-search";
+import { useJokerSearch } from "../hooks/useJokerSearch";
 
 export default function Home() {
-  const filteredJokers = useJokerFilter(jokers as Joker[]);
+  const searchedJokers = useJokerSearch(jokers as Joker[]);
+  const filteredJokers = useJokerFilter(searchedJokers as Joker[]);
   const sortedJokers = useJokerSort(filteredJokers as Joker[]);
 
   return (
@@ -23,7 +26,10 @@ export default function Home() {
         </p>
       </div>
       <div className="w-full max-w-screen-lg gap-4 flex flex-col pb-9">
-        <JokerControlsSheet />
+        <div className="flex flex-row justify-between">
+          <JokerSearch />
+          <JokerControlsSheet />
+        </div>
         <CardsGrid items={sortedJokers as Joker[]}>
           {(joker) => <JokerCard key={joker.id} {...joker} />}
         </CardsGrid>

@@ -42,7 +42,12 @@ const JokerHoverCard: React.FC<JokerCardProps> = ({ id }) => {
           </div>
         )}
       </HoverCardTrigger>
-      <HoverCardContent>{joker?.effect}</HoverCardContent>
+      <HoverCardContent>
+        <div className="flex flex-col gap-1">
+          <h6 className="font-bold">{joker?.name}</h6>
+          <p>{joker?.effect}</p>
+        </div>
+      </HoverCardContent>
     </HoverCard>
   );
 };
