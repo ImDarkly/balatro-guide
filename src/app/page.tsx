@@ -4,19 +4,19 @@ import JokerCard from "../components/joker/joker-card";
 import { Joker } from "../utils/types/jokers";
 import { useJokerFilter } from "../hooks/useJokerFilter";
 import { useJokerSort } from "../hooks/useJokerSort";
-import { jokers } from "@/src/data/jokers.json";
+import data from "@/src/data/jokers.json";
 import JokerControlsSheet from "../components/joker/joker-controls-sheet";
 import { JokerSearch } from "../components/joker/joker-search";
 import { useJokerSearch } from "../hooks/useJokerSearch";
 
 export default function Home() {
-  const searchedJokers = useJokerSearch(jokers as Joker[]);
+  const searchedJokers = useJokerSearch(data.jokers as Joker[]);
   const filteredJokers = useJokerFilter(searchedJokers as Joker[]);
   const sortedJokers = useJokerSort(filteredJokers as Joker[]);
 
   return (
     <main className="flex flex-col items-center justify-around p-4">
-      <div className="flex h-[30vh] flex-col justify-center">
+      <div className="flex h-[45vh] flex-col justify-center">
         <h1 className="scroll-m-20 text-primary-foreground text-center text-4xl font-extrabold tracking-tight text-balance">
           Arlecchino - Balatro Guide
         </h1>
