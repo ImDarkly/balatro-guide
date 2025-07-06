@@ -40,7 +40,9 @@ const JokerDescription: React.FC<{ id: string }> = ({ id }) => {
         </CardHeader>
         <CardContent className="px-0 flex flex-col gap-4">
           <div className="flex gap-2">
-            <Icon icon="pixelarticons:lock-open" className="size-6" />
+            <div className="w-6 h-6 flex-shrink-0">
+              <Icon icon="pixelarticons:lock-open" className="w-full h-full" />
+            </div>
             <p className="text-xl">{joker?.unlockRequirement}</p>
           </div>
           <div>
