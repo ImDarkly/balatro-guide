@@ -1,5 +1,11 @@
 "use client";
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 export enum BackgroundMode {
   Animated = "animated",
@@ -22,6 +28,20 @@ const BackgroundContext = createContext<BackgroundContextType>({
 // Provider component
 export const BackgroundProvider = ({ children }: { children: ReactNode }) => {
   const [mode, setMode] = useState<BackgroundMode>(BackgroundMode.Animated);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const stored = localStorage.getItem("backgroundMode");
+    if (stored) {
+      setMode(stored as BackgroundMode);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    localStorage.setItem("backgroundMode", mode);
+  }, [mode, mounted]);
 
   return (
     <BackgroundContext.Provider value={{ mode, setMode }}>
