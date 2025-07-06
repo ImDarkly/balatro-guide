@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useQueryState } from "nuqs";
 import { Icon } from "@iconify/react";
