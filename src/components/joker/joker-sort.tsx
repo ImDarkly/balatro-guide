@@ -1,16 +1,6 @@
 "use client";
 import React from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { ArrowDownAz, ArrowUpAZ, SlidersHorizontal } from "lucide-react";
-import { Button } from "../ui/button";
+import { ArrowDownAz, ArrowUpAZ } from "lucide-react";
 import { useQueryState } from "nuqs";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
@@ -33,7 +23,7 @@ const jokerSortOptions = {
     { value: "sell-price-desc", label: "High-Low", icon: ArrowUpAZ },
   ],
 };
-const JokerSort: React.FC = () => {
+export function JokerSort() {
   const [sort, setSort] = useQueryState("sort", {
     defaultValue: "rarity-asc",
   });
@@ -65,6 +55,4 @@ const JokerSort: React.FC = () => {
       </RadioGroup>
     </div>
   );
-};
-
-export default JokerSort;
+}

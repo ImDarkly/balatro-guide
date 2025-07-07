@@ -62,7 +62,7 @@ const jokerFilterOptions = {
   },
 };
 
-const JokerFilter: React.FC = () => {
+export function JokerFilter() {
   const [filter, setFilter] = useQueryStates({
     rarity: parseAsArrayOf(parseAsString).withDefault([]),
     type: parseAsArrayOf(parseAsString).withDefault([]),
@@ -125,6 +125,4 @@ const JokerFilter: React.FC = () => {
       ))}
     </div>
   );
-};
-
-export default JokerFilter;
+}

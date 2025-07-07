@@ -1,4 +1,4 @@
-import JokerDetails from "@/src/components/joker/joker-details";
+import { JokerDetails } from "@/src/components/joker/joker-details";
 
 export default function JokerPage({ params }: { params: { id: string } }) {
   return (

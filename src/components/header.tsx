@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const isJokerPage = pathname.startsWith("/joker/");
 
   return (
-    <header className="flex h-20 w-full p-2 sticky top-0 items-center justify-between">
+    <header className="flex z-10 h-20 w-full p-4 sticky top-0 items-center justify-between">
       {isJokerPage && (
         <Link href="/">
           <Button size="icon">

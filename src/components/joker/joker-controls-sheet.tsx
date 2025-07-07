@@ -8,14 +8,14 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { Button } from "../ui/button";
-import JokerSort from "./joker-sort";
-import JokerFilter from "./joker-filter";
 import { ScrollArea } from "../ui/scroll-area";
 import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs";
 import { Badge } from "../ui/badge";
 import { Icon } from "@iconify/react";
+import { JokerSort } from "./joker-sort";
+import { JokerFilter } from "./joker-filter";
 
-const JokerControlsSheet: React.FC = () => {
+export function JokerControlsSheet() {
   const [filter] = useQueryStates({
     rarity: parseAsArrayOf(parseAsString).withDefault([]),
     type: parseAsArrayOf(parseAsString).withDefault([]),
@@ -54,6 +54,4 @@ const JokerControlsSheet: React.FC = () => {
       </SheetContent>
     </Sheet>
   );
-};
-
-export default JokerControlsSheet;
+}

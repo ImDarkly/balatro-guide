@@ -11,7 +11,7 @@ import {
 } from "../ui/hover-card";
 import Link from "next/link";
 
-const JokerCard: React.FC<{ id: string }> = ({ id }) => {
+export function JokerCard({ id }: { id: string }) {
   const joker = data.jokers.find((j) => j.id === id);
   const isPurchasable = joker?.buyPrice;
   const [sort] = useQueryState("sort");
@@ -53,6 +53,4 @@ const JokerCard: React.FC<{ id: string }> = ({ id }) => {
       </HoverCardContent>
     </HoverCard>
   );
-};
-
-export default JokerCard;
+}

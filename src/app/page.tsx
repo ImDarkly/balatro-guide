@@ -1,15 +1,15 @@
 "use client";
 import { CardsGrid } from "../components/cards-grid";
-import JokerCard from "../components/joker/joker-card";
 import { Joker } from "../utils/types/jokers";
 import { useJokerFilter } from "../hooks/useJokerFilter";
 import { useJokerSort } from "../hooks/useJokerSort";
 import data from "@/src/data/jokers.json";
-import JokerControlsSheet from "../components/joker/joker-controls-sheet";
 import { JokerSearch } from "../components/joker/joker-search";
 import { useJokerSearch } from "../hooks/useJokerSearch";
+import { JokerControlsSheet } from "../components/joker/joker-controls-sheet";
+import { JokerCard } from "../components/joker/joker-card";
 
-export default function Home() {
+export default function HomePage() {
   const searchedJokers = useJokerSearch(data.jokers as Joker[]);
   const filteredJokers = useJokerFilter(searchedJokers as Joker[]);
   const sortedJokers = useJokerSort(filteredJokers as Joker[]);
@@ -31,7 +31,7 @@ export default function Home() {
           <JokerControlsSheet />
         </div>
         <CardsGrid items={sortedJokers as Joker[]}>
-          {(joker) => <JokerCard key={joker.id} {...joker} />}
+          {(joker) => <JokerCard id={joker.id} />}
         </CardsGrid>
       </div>
     </main>

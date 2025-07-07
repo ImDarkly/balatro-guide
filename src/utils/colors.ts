@@ -12,3 +12,24 @@ export function getRarityColors(rarity: string) {
       return "bg-primary";
   }
 }
+
+export function getTypeColors(type: string) {
+  switch (type) {
+    case "Additive Mult":
+      return "text-destructive";
+    case "Chips":
+      return "text-primary";
+    case "Chips and Additive Mult":
+      return "text-white";
+    case "Economy":
+      return "text-secondary";
+    case "Effect":
+      return "text-accent";
+    case "Multiplicative Mult":
+      return "text-destructive";
+    case "Retrigger":
+      return "text-accent";
+    default:
+      return "text-white";
+  }
+}
